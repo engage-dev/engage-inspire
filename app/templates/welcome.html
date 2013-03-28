@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+  <div class="theme-default">
+            <div id="slider" >
+                 <img src="img/slider1.png"  alt="" data-transition="slideInLeft" />
+                 <img src="img/slider2.png"  alt="" data-transition="slideInLeft" />
+                <img src="img/slider3.png"  alt="" data-transition="slideInLeft" />
+            </div>
+    </div>
+   
+  <div id="wrap" class="container-top">
+
+    <div id="welcome">
+    	<p>
+             Join us on <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Google%20Engage%20%7C%20Inspire&dates=20130501T000000Z/20130501T040000Z&details=An%20exclusive%20event%20designed%20to%20show%20you%20how%20your%20business%20can%20make%20the%20most%20of%20the%20web.&location=Googleplex&trp=true&sprop=&sprop=name:" target="_blank">April 30th</a> at the Googleplex for an exclusive event <br>designed to show you how your business can make the most of the web. 
+            <br><br>
+            We'll introduce you to the latest Google products, answer any questions you may have,<br>  and connect you with one of our agency partners to help you plan for a successful 2013. <br>
+            By the way, dinner’s on us.
+            <br><br>
+            We look forward to seeing you there.
+		</p>
+    
+   </div><!-- welcome -->
+   
+  
+   <div>
+   		<a href="/register"><button class="blue-btn" style="width:162px;">Register now</button></a>
+   </div>
+
+   
+   </div><!-- wrap -->
+   
+    <div id="push"></div>
+    
+    <script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        animSpeed: 300, // Slide transition speed
+        pauseTime: 6000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+    });
+});
+</script>
+    
+{% endblock body %}

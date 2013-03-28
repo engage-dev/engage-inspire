@@ -1,0 +1,50 @@
+application: engage-inspire
+version: 1-mw
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /css
+  static_dir: static/css
+
+- url: /js
+  static_dir: static/js
+
+- url: /img
+  static_dir: static/img
+
+- url: /.*
+  script: main.app
+  # secure: always
+  # login: admin
+
+- url: /admin
+  script: main.app
+  secure: always
+  login: admin
+
+libraries:
+- name: jinja2
+  version: "2.6"
+- name: webapp2
+  version: "2.5.2"
+
+# remote_api needed for uploading and downloading data to the datastore
+builtins:
+- remote_api: on
+
+# Files to omit when dowloading source from AppEngine
+# Note that .yaml files are omitted. These files don't get added
+# to the server, but are used to configure the environment on deploy
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?.*\.sublime

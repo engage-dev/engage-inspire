@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+   <div id="splashbg"></div> 
+	
+    <div class="grid" style="margin-top:34px;">
+        <form action="/enter" id="index-reg-code" method="post">
+            {% if code_attempted is defined %}
+            <p class="text-error">The code you entered was invalid. Please try again.</p>
+            {% endif %}
+
+            <p style="padding-bottom:10px; font-size:12px;">To see what we've got lined up, please enter your code below:</p>
+            <input name="c" type="text" id="reg-code" size="100" style="height:25px;"/>
+            <button class="blue-btn" style="margin-top:-15px; margin-left:15px;">Submit</button>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        </form>
+        
+        <div id="push"></div>
+{% endblock body %}

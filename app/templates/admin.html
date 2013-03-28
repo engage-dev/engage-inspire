@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Google Engage Registrations</title>
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1>User Registrations</h1>
+
+    <p><a href="/admin/download-csv">Download CSV</a></p>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Industry</th>
+            <th>I Want Help With</th>
+            <th>Share Info</th>
+            <th>Access Code</th>
+            <th>Date Added</th>
+            {#<th>User Type</th>#}
+            {#<th>Company Image</th>#}
+            {#<th>Company Brief</th>#}
+          </tr>
+        </thead>
+        <tbody>
+          {% for registration in registrations %}
+            <tr>
+              <td>{{ registration.first_name}} {{ registration.last_name }}</td>
+              <td>{{ registration.company }}</td>
+              <td>{{ registration.email }}</td>
+              <td>{{ registration.industry }}</td>
+              <td>{{ registration.help_with }}</td>
+              <td>{% if registration.share_my_info == true %}Yes{% else %}No{% endif %}</td>
+              <td>{{ registration.access_code }}</td>
+              <td>{{ registration.date_added }}</td>
+              {#<td>{{ registration.user_type }}</td>#}
+              {#<td>{% if registration.company_image %}<a target="_blank" href="{{ registration.company_image }}">View</a>{% endif %}</td>#}
+              {#<td>{{ registration.company_brief }}</td>#}
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</body>
+</html>
